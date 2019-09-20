@@ -1,0 +1,6 @@
+---
+
+grpcurl_install_dir: /usr/local/bin
+grpcurl_version: v1.3.1
+grpcurl_download_url: "https://github.com/fullstorydev/grpcurl/releases/download/{{ grpcurl_version }}/grpcurl_{{ grpcurl_version | regex_replace('^v', '') }}_linux_x86_64.tar.gz"
+grpcurl_checksum: sha256:c1ea87f0c88f269b067e43ad9f354ac8f469cb599311c3f481f75a19334aa6aa

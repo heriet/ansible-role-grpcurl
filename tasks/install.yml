@@ -1,0 +1,25 @@
+---
+
+- name: download grpcurl archive
+  get_url:
+    dest: "/tmp/grpcurl-{{ grpcurl_version }}.tar.gz"
+    url: "{{ grpcurl_download_url }}"
+    checksum: "{{ grpcurl_checksum }}"
+
+- name: unarchive grpcurl
+  unarchive:
+    src: "/tmp/grpcurl-{{ grpcurl_version }}.tar.gz"
+    dest: /tmp
+    remote_src: yes
+
+- name: place grpcurl
+  copy:
+    src: "/tmp/grpcurl"
+    dest: "{{ grpcurl_install_dir }}/grpcurl"
+    remote_src: yes
+
+- name: grpcurl is executable
+  file:
+    path: "{{ grpcurl_install_dir }}/grpcurl"
+    mode: a+x
+
